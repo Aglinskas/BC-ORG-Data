@@ -1,0 +1,621 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "631ff340",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'/mmfs1/data/aglinska/BC-ORG-Data/Code'"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "pwd"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "fe63bd35",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "/mmfs1/data/aglinska/ndar_fmri\n"
+     ]
+    }
+   ],
+   "source": [
+    "cd ../../ndar_fmri/"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "7fcdc1d7",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "import os\n",
+    "import numpy as np\n",
+    "from tqdm import tqdm\n",
+    "import shutil"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "bb36b714",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>collection_id</th>\n",
+       "      <th>image03_id</th>\n",
+       "      <th>dataset_id</th>\n",
+       "      <th>subjectkey</th>\n",
+       "      <th>src_subject_id</th>\n",
+       "      <th>interview_age</th>\n",
+       "      <th>sex</th>\n",
+       "      <th>comments_misc</th>\n",
+       "      <th>image_file</th>\n",
+       "      <th>image_thumbnail_file</th>\n",
+       "      <th>...</th>\n",
+       "      <th>week</th>\n",
+       "      <th>experiment_description</th>\n",
+       "      <th>visit</th>\n",
+       "      <th>slice_timing</th>\n",
+       "      <th>bvek_bval_files</th>\n",
+       "      <th>deviceserialnumber</th>\n",
+       "      <th>procdate</th>\n",
+       "      <th>visnum</th>\n",
+       "      <th>manifest</th>\n",
+       "      <th>collection_title</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>2075</td>\n",
+       "      <td>367948</td>\n",
+       "      <td>9786</td>\n",
+       "      <td>NDARAV510ZB5</td>\n",
+       "      <td>1108</td>\n",
+       "      <td>107</td>\n",
+       "      <td>M</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>s3://NDAR_Central_1/submission_10916/TNAD-x-21...</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>...</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>Mapping Thalamocortical Networks Across Develo...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>2075</td>\n",
+       "      <td>367949</td>\n",
+       "      <td>9786</td>\n",
+       "      <td>NDARCZ285AMD</td>\n",
+       "      <td>1147</td>\n",
+       "      <td>218</td>\n",
+       "      <td>F</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>s3://NDAR_Central_1/submission_10916/TNAD-x-21...</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>...</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>Mapping Thalamocortical Networks Across Develo...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>2075</td>\n",
+       "      <td>367950</td>\n",
+       "      <td>9786</td>\n",
+       "      <td>NDARVM585CF7</td>\n",
+       "      <td>1179</td>\n",
+       "      <td>287</td>\n",
+       "      <td>M</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>s3://NDAR_Central_1/submission_10916/TNAD-x-21...</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>...</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>Mapping Thalamocortical Networks Across Develo...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>2075</td>\n",
+       "      <td>367951</td>\n",
+       "      <td>9786</td>\n",
+       "      <td>NDARXK457KEY</td>\n",
+       "      <td>1232</td>\n",
+       "      <td>427</td>\n",
+       "      <td>M</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>s3://NDAR_Central_1/submission_10916/TNAD-x-21...</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>...</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>Mapping Thalamocortical Networks Across Develo...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>5</th>\n",
+       "      <td>2075</td>\n",
+       "      <td>367952</td>\n",
+       "      <td>9786</td>\n",
+       "      <td>NDARJG780VAV</td>\n",
+       "      <td>1323</td>\n",
+       "      <td>241</td>\n",
+       "      <td>M</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>s3://NDAR_Central_1/submission_10916/TNAD-x-21...</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>...</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>Mapping Thalamocortical Networks Across Develo...</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "<p>5 rows × 73 columns</p>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "  collection_id image03_id dataset_id    subjectkey src_subject_id  \\\n",
+       "1          2075     367948       9786  NDARAV510ZB5           1108   \n",
+       "2          2075     367949       9786  NDARCZ285AMD           1147   \n",
+       "3          2075     367950       9786  NDARVM585CF7           1179   \n",
+       "4          2075     367951       9786  NDARXK457KEY           1232   \n",
+       "5          2075     367952       9786  NDARJG780VAV           1323   \n",
+       "\n",
+       "  interview_age sex comments_misc  \\\n",
+       "1           107   M           NaN   \n",
+       "2           218   F           NaN   \n",
+       "3           287   M           NaN   \n",
+       "4           427   M           NaN   \n",
+       "5           241   M           NaN   \n",
+       "\n",
+       "                                          image_file image_thumbnail_file  \\\n",
+       "1  s3://NDAR_Central_1/submission_10916/TNAD-x-21...                  NaN   \n",
+       "2  s3://NDAR_Central_1/submission_10916/TNAD-x-21...                  NaN   \n",
+       "3  s3://NDAR_Central_1/submission_10916/TNAD-x-21...                  NaN   \n",
+       "4  s3://NDAR_Central_1/submission_10916/TNAD-x-21...                  NaN   \n",
+       "5  s3://NDAR_Central_1/submission_10916/TNAD-x-21...                  NaN   \n",
+       "\n",
+       "   ... week experiment_description visit slice_timing bvek_bval_files  \\\n",
+       "1  ...  NaN                    NaN   NaN          NaN             NaN   \n",
+       "2  ...  NaN                    NaN   NaN          NaN             NaN   \n",
+       "3  ...  NaN                    NaN   NaN          NaN             NaN   \n",
+       "4  ...  NaN                    NaN   NaN          NaN             NaN   \n",
+       "5  ...  NaN                    NaN   NaN          NaN             NaN   \n",
+       "\n",
+       "  deviceserialnumber procdate visnum manifest  \\\n",
+       "1                NaN      NaN    NaN      NaN   \n",
+       "2                NaN      NaN    NaN      NaN   \n",
+       "3                NaN      NaN    NaN      NaN   \n",
+       "4                NaN      NaN    NaN      NaN   \n",
+       "5                NaN      NaN    NaN      NaN   \n",
+       "\n",
+       "                                    collection_title  \n",
+       "1  Mapping Thalamocortical Networks Across Develo...  \n",
+       "2  Mapping Thalamocortical Networks Across Develo...  \n",
+       "3  Mapping Thalamocortical Networks Across Develo...  \n",
+       "4  Mapping Thalamocortical Networks Across Develo...  \n",
+       "5  Mapping Thalamocortical Networks Across Develo...  \n",
+       "\n",
+       "[5 rows x 73 columns]"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df = pd.read_csv('image03.txt',delimiter='\\t')\n",
+    "df = df.iloc[1::]\n",
+    "df = df.iloc[~pd.isna(df['image_file']).values]\n",
+    "df.head(5)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "4d6880e4",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "5509\n",
+      "1228\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(len(df['subjectkey'].values))\n",
+    "print(len(np.unique(df['subjectkey'].values)))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "3411a28b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "100%|██████████| 5509/5509 [00:02<00:00, 1856.66it/s]\n"
+     ]
+    }
+   ],
+   "source": [
+    "n = len(df)\n",
+    "root = './image03/'\n",
+    "local_paths = list()\n",
+    "for i in tqdm(range(n)):\n",
+    "    s3_path = df['image_file'].values[i]\n",
+    "    splits = s3_path.split('/')[4::]\n",
+    "    relative = '/'.join(splits)\n",
+    "    local_path = os.path.join(root,relative)\n",
+    "    assert os.path.exists(os.path.join(root,relative))\n",
+    "    local_paths.append(local_path)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "b856dea0",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "s3://NDAR_Central_4/submission_26971/SZ0202_00_SPINECHOFIELDMAP_PA_0033.zip\n",
+      "./image03/SZ0202_00_SPINECHOFIELDMAP_PA_0033.zip\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(s3_path)\n",
+    "print(os.path.join(root,relative))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 60,
+   "id": "c9f2a082",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "df['local_paths'] = local_paths"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 88,
+   "id": "62102aa4",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "100%|██████████| 5509/5509 [1:02:48<00:00,  1.46it/s]\n"
+     ]
+    }
+   ],
+   "source": [
+    "errors = list()\n",
+    "for s in tqdm(range(n)):\n",
+    "    subKey = df['subjectkey'].values[s]\n",
+    "    subFilePath = df['local_paths'].values[s]\n",
+    "    subFile = subFilePath.split('/')[-1]\n",
+    "\n",
+    "    if not os.path.exists(os.path.join('./subjects',subKey)):\n",
+    "        os.mkdir(os.path.join('./subjects',subKey))\n",
+    "    \n",
+    "    try: \n",
+    "        shutil.copyfile(subFilePath,os.path.join('./subjects',subKey,subFile));\n",
+    "    except:\n",
+    "        errors.append(subFilePath)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "53dc4b7b",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "markdown",
+   "id": "9bb5086c",
+   "metadata": {},
+   "source": [
+    "## PART TWO"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 90,
+   "id": "f958542b",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'/mmfs1/data/aglinska/ndar_fmri'"
+      ]
+     },
+     "execution_count": 90,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "pwd"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 122,
+   "id": "e84a3efd",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "indir = './subjects/'\n",
+    "folders = np.array(os.listdir(indir))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 124,
+   "id": "f73bbf7b",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "has_nii = np.array([any(['.nii' in cont for cont in os.listdir(os.path.join(indir,f))]) for f in folders])\n",
+    "has_tar = np.array([any(['.tar' in cont for cont in os.listdir(os.path.join(indir,f))]) for f in folders])\n",
+    "has_rest = np.array([any(['rest' in cont.lower() for cont in os.listdir(os.path.join(indir,f))]) for f in folders])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 125,
+   "id": "4e082215",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "708"
+      ]
+     },
+     "execution_count": 125,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "(has_rest * has_nii).sum()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 161,
+   "id": "4eb08cbd",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "exts = list()\n",
+    "for folder in folders:\n",
+    "    these_exts = [cont.split('.')[-1] for cont in os.listdir(os.path.join(indir,folder))]\n",
+    "    [exts.append(ext) for ext in these_exts]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 162,
+   "id": "77c8d5d3",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>ones</th>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>key</th>\n",
+       "      <th></th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>1D</th>\n",
+       "      <td>1</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1_1018_v1_zip</th>\n",
+       "      <td>1</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1_1018_v2_zip</th>\n",
+       "      <td>1</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>BRIK</th>\n",
+       "      <td>57</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>dcm</th>\n",
+       "      <td>363</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>gz</th>\n",
+       "      <td>2592</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>gz?</th>\n",
+       "      <td>1</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>nii</th>\n",
+       "      <td>436</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>zip</th>\n",
+       "      <td>109</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "               ones\n",
+       "key                \n",
+       "1D                1\n",
+       "1_1018_v1_zip     1\n",
+       "1_1018_v2_zip     1\n",
+       "BRIK             57\n",
+       "dcm             363\n",
+       "gz             2592\n",
+       "gz?               1\n",
+       "nii             436\n",
+       "zip             109"
+      ]
+     },
+     "execution_count": 162,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "c = pd.DataFrame(np.array(exts),columns=['key'])\n",
+    "c['ones'] = np.ones(len(c))\n",
+    "c.groupby(['key']).count()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "37329824",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
