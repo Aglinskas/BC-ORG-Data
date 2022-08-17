@@ -13,7 +13,7 @@
 
 notebook_name='fMRI_Prep_Tutorial.ipynb'
 
-outname='fMRI_Prep_Papermill_2.ipynb'
+outname='fMRI_Prep_Papermill_5.ipynb'
 
 pwd
 
