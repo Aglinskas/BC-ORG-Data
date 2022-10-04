@@ -1,0 +1,1 @@
+/cm/local/apps/slurm/var/spool/job466224/slurm_script: line 15: 3056129 Segmentation fault      (core dumped) python BIDSify_NDAR_data.py $study_id $sub

@@ -1,0 +1,18 @@
+importing stuff
+2022-09-22 16:15:10.827972
+imported stuff!
+2022-09-22 16:15:15.696446
+name of this script is: BIDSify_NDAR_data.py
+study name is: 2590
+subject number is: 73
+77 unique subjects
+77 subjects with anat + fmri
+copying files
+2022-09-22 16:15:17.036276
+done copying
+2022-09-22 16:20:31.664322
+{"Name": "Using complex video stimuli to elucidate atypical brain functioning in ASD", "RepetitionTime": 2.0, "SliceTiming": 2.0, "TaskName": "taskrest", "BIDSVersion": "20.2.0"}
+all done, kthxbye
+2022-09-22 16:21:47.713988
+elapsed time
+0:06:36.886042

@@ -1,0 +1,36 @@
+importing stuff
+2022-09-26 19:58:05.166593
+imported stuff!
+2022-09-26 19:58:32.927369
+name of this script is: BIDSify_NDAR_data.py
+study name is: 2834
+subject number is: 73
+89 unique subjects
+89 subjects with anat + fmri
+copying files
+2022-09-26 19:58:36.285857
+done copying
+2022-09-26 20:00:23.192693
+{"Name": "Neuronal Correlates of Autistic Traits in ADHD and Autism", "RepetitionTime": 2.0, "SliceTiming": 2.0, "TaskName": "taskrest", "BIDSVersion": "20.2.0"}
+all done, kthxbye
+2022-09-26 20:00:46.495236
+elapsed time
+0:02:41.328667
+importing stuff
+2022-10-04 13:25:39.983023
+imported stuff!
+2022-10-04 13:26:25.667058
+name of this script is: BIDSify_NDAR_data.py
+study name is: 2494
+subject number is: 73
+183 unique subjects
+183 subjects with anat + fmri
+copying files
+2022-10-04 13:26:39.676366
+done copying
+2022-10-04 13:27:04.607933
+{"Name": "Functional Anatomic Studies of Self-Affect:  A Multimodal Approach", "RepetitionTime": 2.0, "SliceTiming": 2.0, "TaskName": "taskrest", "BIDSVersion": "20.2.0"}
+all done, kthxbye
+2022-10-04 13:27:08.674881
+elapsed time
+0:01:28.692356

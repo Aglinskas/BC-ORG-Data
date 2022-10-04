@@ -1,0 +1,18 @@
+importing stuff
+2022-10-04 13:28:20.957031
+imported stuff!
+2022-10-04 13:28:34.938443
+name of this script is: BIDSify_NDAR_data.py
+study name is: 2494
+subject number is: 130
+183 unique subjects
+183 subjects with anat + fmri
+copying files
+2022-10-04 13:28:39.910373
+done copying
+2022-10-04 13:30:36.379130
+{"Name": "Functional Anatomic Studies of Self-Affect:  A Multimodal Approach", "RepetitionTime": 2.0, "SliceTiming": 2.0, "TaskName": "taskrest", "BIDSVersion": "20.2.0"}
+all done, kthxbye
+2022-10-04 13:31:01.880993
+elapsed time
+0:02:40.923982
