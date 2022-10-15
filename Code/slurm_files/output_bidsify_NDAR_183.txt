@@ -1,9 +1,0 @@
-importing stuff
-2022-10-04 13:29:30.540613
-imported stuff!
-2022-10-04 13:29:51.466364
-name of this script is: BIDSify_NDAR_data.py
-study name is: 2494
-subject number is: 183
-183 unique subjects
-183 subjects with anat + fmri

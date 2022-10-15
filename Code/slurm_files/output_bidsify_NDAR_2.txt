@@ -16,3 +16,75 @@ all done, kthxbye
 2022-10-04 13:28:58.702265
 elapsed time
 0:03:19.258323
+importing stuff
+2022-10-04 14:42:52.545697
+imported stuff!
+2022-10-04 14:43:38.739106
+name of this script is: BIDSify_NDAR_data.py
+study name is: 2338
+subject number is: 2
+52 unique subjects
+52 subjects with anat + fmri
+copying files
+2022-10-04 14:43:41.015743
+done copying
+2022-10-04 14:46:57.463812
+{"Name": "Multimodal Imaging of Early Neural Signature in Autism Spectrum Disorder", "RepetitionTime": 2.0, "SliceTiming": 2.0, "TaskName": "taskrest", "BIDSVersion": "20.2.0"}
+all done, kthxbye
+2022-10-04 14:47:39.994260
+elapsed time
+0:04:47.448599
+importing stuff
+2022-10-12 20:25:14.959336
+imported stuff!
+2022-10-12 20:26:06.356769
+name of this script is: BIDSify_NDAR_data.py
+study name is: 2342
+subject number is: 2
+91 unique subjects
+85 subjects with anat + fmri
+copying files
+2022-10-12 20:26:07.844445
+done copying
+2022-10-12 20:26:27.063779
+{"Name": "Cognitive and Neural Flexibility in Autism", "RepetitionTime": 2.0, "SliceTiming": 2.0, "TaskName": "taskrest", "BIDSVersion": "20.2.0"}
+all done, kthxbye
+2022-10-12 20:26:30.058204
+elapsed time
+0:01:15.098904
+importing stuff
+2022-10-12 22:13:53.528052
+imported stuff!
+2022-10-12 22:14:36.408726
+name of this script is: BIDSify_NDAR_data.py
+study name is: 2027
+subject number is: 2
+10 unique subjects
+10 subjects with anat + fmri
+copying files
+2022-10-12 22:14:37.473088
+done copying
+2022-10-12 22:14:40.229126
+{"Name": "A Longitudinal MRI Study of Infants at Risk for Autism (ACE 2)", "RepetitionTime": 2.0, "SliceTiming": 2.0, "TaskName": "taskrest", "BIDSVersion": "20.2.0"}
+all done, kthxbye
+2022-10-12 22:14:40.391107
+elapsed time
+0:00:46.863090
+importing stuff
+2022-10-15 15:15:29.499581
+imported stuff!
+2022-10-15 15:16:18.504334
+name of this script is: BIDSify_NDAR_data.py
+study name is: 2025
+subject number is: 2
+38 unique subjects
+38 subjects with anat + fmri
+copying files
+2022-10-15 15:16:20.931689
+done copying
+2022-10-15 15:16:38.854722
+{"Name": "Minimally Verbal ASD: From Basic Mechanisms to Innovative Interventions", "RepetitionTime": 2.0, "SliceTiming": 2.0, "TaskName": "taskrest", "BIDSVersion": "20.2.0"}
+all done, kthxbye
+2022-10-15 15:16:41.487294
+elapsed time
+0:01:11.987737

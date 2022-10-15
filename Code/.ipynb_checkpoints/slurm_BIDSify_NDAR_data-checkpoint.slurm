@@ -6,10 +6,10 @@
 #SBATCH --ntasks=1
 #SBATCH --time=1:00:00
 #SBATCH --mem=16gb
-#SBATCH --array=0-52
+#SBATCH --array=0-10
 
 
-study_id=2338
+study_id=2025
 sub=$SLURM_ARRAY_TASK_ID
 
 python BIDSify_NDAR_data.py $study_id $sub

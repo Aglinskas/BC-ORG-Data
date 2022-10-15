@@ -1,0 +1,72 @@
+importing stuff
+2022-10-04 14:47:15.521867
+imported stuff!
+2022-10-04 14:48:08.058686
+name of this script is: BIDSify_NDAR_data.py
+study name is: 2338
+subject number is: 9
+52 unique subjects
+52 subjects with anat + fmri
+copying files
+2022-10-04 14:48:09.732877
+done copying
+2022-10-04 14:50:39.058593
+{"Name": "Multimodal Imaging of Early Neural Signature in Autism Spectrum Disorder", "RepetitionTime": 2.0, "SliceTiming": 2.0, "TaskName": "taskrest", "BIDSVersion": "20.2.0"}
+all done, kthxbye
+2022-10-04 14:51:12.385818
+elapsed time
+0:03:56.863977
+importing stuff
+2022-10-12 20:26:45.234070
+imported stuff!
+2022-10-12 20:27:34.377979
+name of this script is: BIDSify_NDAR_data.py
+study name is: 2342
+subject number is: 9
+91 unique subjects
+85 subjects with anat + fmri
+copying files
+2022-10-12 20:27:35.849120
+done copying
+2022-10-12 20:27:59.968810
+{"Name": "Cognitive and Neural Flexibility in Autism", "RepetitionTime": 2.0, "SliceTiming": 2.0, "TaskName": "taskrest", "BIDSVersion": "20.2.0"}
+all done, kthxbye
+2022-10-12 20:28:05.107899
+elapsed time
+0:01:19.873855
+importing stuff
+2022-10-12 22:14:54.113635
+imported stuff!
+2022-10-12 22:15:17.448619
+name of this script is: BIDSify_NDAR_data.py
+study name is: 2027
+subject number is: 9
+10 unique subjects
+10 subjects with anat + fmri
+copying files
+2022-10-12 22:15:18.672167
+done copying
+2022-10-12 22:15:27.034477
+{"Name": "A Longitudinal MRI Study of Infants at Risk for Autism (ACE 2)", "RepetitionTime": 2.0, "SliceTiming": 2.0, "TaskName": "taskrest", "BIDSVersion": "20.2.0"}
+all done, kthxbye
+2022-10-12 22:15:30.356604
+elapsed time
+0:00:36.242993
+importing stuff
+2022-10-15 15:15:29.375724
+imported stuff!
+2022-10-15 15:16:07.852433
+name of this script is: BIDSify_NDAR_data.py
+study name is: 2025
+subject number is: 9
+38 unique subjects
+38 subjects with anat + fmri
+copying files
+2022-10-15 15:16:09.342815
+done copying
+2022-10-15 15:16:27.447179
+{"Name": "Minimally Verbal ASD: From Basic Mechanisms to Innovative Interventions", "RepetitionTime": 2.0, "SliceTiming": 2.0, "TaskName": "taskrest", "BIDSVersion": "20.2.0"}
+all done, kthxbye
+2022-10-15 15:16:30.210173
+elapsed time
+0:01:00.834482

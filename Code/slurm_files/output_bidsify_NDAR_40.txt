@@ -1,0 +1,36 @@
+importing stuff
+2022-10-04 15:06:13.576673
+imported stuff!
+2022-10-04 15:06:45.930241
+name of this script is: BIDSify_NDAR_data.py
+study name is: 2338
+subject number is: 40
+52 unique subjects
+52 subjects with anat + fmri
+copying files
+2022-10-04 15:06:47.666587
+done copying
+2022-10-04 15:09:46.956594
+{"Name": "Multimodal Imaging of Early Neural Signature in Autism Spectrum Disorder", "RepetitionTime": 2.0, "SliceTiming": 2.0, "TaskName": "taskrest", "BIDSVersion": "20.2.0"}
+all done, kthxbye
+2022-10-04 15:10:25.159789
+elapsed time
+0:04:11.583161
+importing stuff
+2022-10-12 20:32:48.003066
+imported stuff!
+2022-10-12 20:33:50.210079
+name of this script is: BIDSify_NDAR_data.py
+study name is: 2342
+subject number is: 40
+91 unique subjects
+85 subjects with anat + fmri
+copying files
+2022-10-12 20:33:53.347026
+done copying
+2022-10-12 20:34:24.688982
+{"Name": "Cognitive and Neural Flexibility in Autism", "RepetitionTime": 2.0, "SliceTiming": 2.0, "TaskName": "taskrest", "BIDSVersion": "20.2.0"}
+all done, kthxbye
+2022-10-12 20:34:34.119076
+elapsed time
+0:01:46.116046
