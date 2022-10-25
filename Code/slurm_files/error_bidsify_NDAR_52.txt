@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "BIDSify_NDAR_data.py", line 82, in <module>
-    sub = use_subjects[s]
-IndexError: index 52 is out of bounds for axis 0 with size 52
